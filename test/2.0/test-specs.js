@@ -187,6 +187,7 @@ describe('Specification v2.0', function () {
             {
               code: 'OBJECT_MISSING_REQUIRED_PROPERTY',
               message: 'Missing required property: paths',
+              title: 'A JSON Schema for Swagger 2.0 API.',
               path: []
             }
           ]);
@@ -2137,8 +2138,9 @@ describe('Specification v2.0', function () {
 
     it('should return errors/warnings for invalid model', function (done) {
       var swaggerObject = _.cloneDeep(petStoreJson);
+      var modelRef = '#/definitions/Pet';
 
-      spec.validateModel(swaggerObject, '#/definitions/Pet', {
+      spec.validateModel(swaggerObject, modelRef, {
         id: 1
       }, function (err, result) {
         if (err) {
@@ -2149,6 +2151,7 @@ describe('Specification v2.0', function () {
           {
             code: 'OBJECT_MISSING_REQUIRED_PROPERTY',
             message: 'Missing required property: name',
+            title: `Composed ${modelRef}`,
             path: []
           }
         ]);
