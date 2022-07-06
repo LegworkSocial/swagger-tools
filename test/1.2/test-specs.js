@@ -1503,8 +1503,9 @@ describe('Specification v1.2', function () {
 
     it('should return errors/warnings for invalid model', function (done) {
       var cPetJson = _.cloneDeep(petJson);
+      var modelRef = 'Pet';
 
-      spec.validateModel(cPetJson, 'Pet', {
+      spec.validateModel(cPetJson, modelRef, {
         id: 1
       }, function (err, result) {
         if (err) {
@@ -1515,6 +1516,7 @@ describe('Specification v1.2', function () {
           {
             code: 'OBJECT_MISSING_REQUIRED_PROPERTY',
             message: 'Missing required property: name',
+            title: `Composed ${modelRef}`,
             path: []
           }
         ]);
