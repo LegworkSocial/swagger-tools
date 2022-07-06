@@ -110,6 +110,11 @@ gulp.task('lint', function () {
     .pipe($.jshint.reporter('fail'));
 });
 
+/**
+ * Node Security Platform seems to be shutdown/deprecated
+ * - https://github.com/aheckmann/gm/issues/836
+ * - https://stackoverflow.com/questions/53716991/node-security-service-shutdown-getaddrinfo-enotfound-api-nodesecurity-io
+ */
 gulp.task('nsp', function (cb) {
   $.nsp({
     package: path.join(__dirname, 'package.json')
@@ -232,4 +237,5 @@ gulp.task('test', function (cb) {
   runSequence('test-node', 'test-browser', cb);
 });
 
-gulp.task('default', ['lint', 'nsp', 'test']);
+// gulp.task('default', ['lint', 'nsp', 'test']);
+gulp.task('default', ['lint', 'test']);
