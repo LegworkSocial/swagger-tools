@@ -1,0 +1,35 @@
+From 8ca787c5239b5a23a5b18b1c0014312ce0bdc763 Mon Sep 17 00:00:00 2001
+From: manny <manny@legworkprm.com>
+Date: Wed, 6 Jul 2022 14:57:11 -0700
+Subject: [PATCH 3/3] remove nsp step from gulp build due to deprecation
+
+---
+ gulpfile.js | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/gulpfile.js b/gulpfile.js
+index c318aa9..c2cbf92 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -110,6 +110,11 @@ gulp.task('lint', function () {
+     .pipe($.jshint.reporter('fail'));
+ });
+ 
++/**
++ * Node Security Platform seems to be shutdown/deprecated
++ * - https://github.com/aheckmann/gm/issues/836
++ * - https://stackoverflow.com/questions/53716991/node-security-service-shutdown-getaddrinfo-enotfound-api-nodesecurity-io
++ */
+ gulp.task('nsp', function (cb) {
+   $.nsp({
+     package: path.join(__dirname, 'package.json')
+@@ -232,4 +237,5 @@ gulp.task('test', function (cb) {
+   runSequence('test-node', 'test-browser', cb);
+ });
+ 
+-gulp.task('default', ['lint', 'nsp', 'test']);
++// gulp.task('default', ['lint', 'nsp', 'test']);
++gulp.task('default', ['lint', 'test']);
+-- 
+2.25.1
+
