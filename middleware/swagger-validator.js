@@ -140,7 +140,17 @@ var validateValue = function (req, schema, path, val, location, callback) {
                                                     schema.type), aVal, oCallback);
       } else {
         try {
-          validators.validateAgainstSchema(schema.schema ? schema.schema : schema, val);
+          const schemaToValidate = schema.schema ? schema.schema : schema;
+          const additionalProperties = schemaToValidate.additionalProperties;
+
+          // if additionalProperties has been left off of the schema definition
+          // then we want to enforce a default of false (versus the unforked repo's default of true),
+          // preventing additional attributes from being passed into the POST/PATCH request body
+          // and accepted as valid by default.
+          if (additionalProperties === undefined) {
+            schemaToValidate.additionalProperties = false;
+          }
+          validators.validateAgainstSchema(schemaToValidate, val);
 
           oCallback();
         } catch (err) {

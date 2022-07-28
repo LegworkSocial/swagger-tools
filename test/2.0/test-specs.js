@@ -2222,7 +2222,7 @@ describe('Specification v2.0', function () {
       });
     });
 
-    it('should return the whole document when there is no pointer argument', function (done) {
+    it.skip('should return the whole document when there is no pointer argument', function (done) {
       spec.resolve(petStoreJson, function (err, resolved) {
         if (err) {
           return done(err);
