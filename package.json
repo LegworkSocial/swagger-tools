@@ -36,8 +36,10 @@
     "LICENSE",
     "lib",
     "middleware",
-    "schemas"
+    "schemas",
+    "index.d.ts"
   ],
+  "types": "index.d.ts",
   "devDependencies": {
     "browserify": "^14.4.0",
     "connect": "^3.4.0",
