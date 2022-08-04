@@ -1,0 +1,20 @@
+From 9444d9db63092f3185e935ce52dff5c81552a87c Mon Sep 17 00:00:00 2001
+From: manny <manny@legworkprm.com>
+Date: Tue, 2 Aug 2022 13:29:52 -0700
+Subject: [PATCH 1/4] stub in type declaration file
+
+---
+ index.d.ts | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 index.d.ts
+
+diff --git a/index.d.ts b/index.d.ts
+new file mode 100644
+index 0000000..763ade4
+--- /dev/null
++++ b/index.d.ts
+@@ -0,0 +1 @@
++declare module '@legwork/swagger-tools';
+-- 
+2.25.1
+
