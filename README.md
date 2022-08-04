@@ -96,3 +96,22 @@ project root will lint check the source code and run the unit tests.
 [swagger-docs-v1_2]: https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md
 [swagger-docs-v2_0]: https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md
 [swagger-ui]: https://github.com/swagger-api/swagger-ui
+
+## Legwork Fork
+Changes to our forked version of this repo should be saved as `patch` files into the `./patches` folder so we have a concise history of the changes we've made to the repo. A `patch` file has the added benefit over a `diff` file because it also transfers the authorship info and the commit message.
+
+### Creating the `patch` file
+- Code your changes and make your commit(s).
+- From a terminal, run the following command, replacing `<n>` with the number of topmost commits from the current branch to include:
+   ```
+   git format-patch -o ./patches -<n>
+   ```
+
+### Updating latest `master` and applying the `./patches` folder
+- Update to the latest `master` (checkout `master` and `git pull`).
+- Checkout or create a new branch.
+- Apply all of the patches contained in the `./patches` folder:
+   ```
+   git am ./patches/*
+   ```
+- `git push` your branch.

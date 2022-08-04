@@ -1,0 +1,23 @@
+From c11cad73524e82b9cb3028b87134ef9fba90d57e Mon Sep 17 00:00:00 2001
+From: manny <manny@legworkprm.com>
+Date: Tue, 2 Aug 2022 13:31:51 -0700
+Subject: [PATCH 2/4] add @legwork scope to package name
+
+---
+ package.json | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/package.json b/package.json
+index 5b5f80a..8daa0a5 100644
+--- a/package.json
++++ b/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "swagger-tools",
++  "name": "@legwork/swagger-tools",
+   "version": "0.10.3",
+   "description": "Various tools for using and integrating with Swagger.",
+   "main": "index.js",
+-- 
+2.25.1
+
